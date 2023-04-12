@@ -1,9 +1,9 @@
-Please enter the message:
-Hi
+Please enter the message:  
+Hi  
 I wo2023-04-12 10:02:13,030 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "Hello! Welcome to our restaurant. What can I get for you today?", "thoughts": "Greeting the user and asking for their order."}  
 Hello! Welcome to our restaurant. What can I get for you today?  
 I would like tuna steak!  
-2023-04-12 10:02:23,168 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "I'm sorry, but we don't have tuna steak on our menu. Would you like to order something else?", "thoughts": "Informing the user that tuna steak is not on the menu and asking for a different order."}
+2023-04-12 10:02:23,168 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "I'm sorry, but we don't have tuna steak on our menu. Would you like to order something else?", "thoughts": "Informing the user that tuna steak is not on the menu and asking for a different order."}  
 I'm sorry, but we don't have tuna steak on our menu. Would you like to order something else?  
 Yes, what do you have?  
 2023-04-12 10:02:33,208 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "We have salads, soups, main courses, drinks, and desserts. What type of dish are you in the mood for?", "thoughts": "Providing the user with the categories of dishes we have and asking for their preference."}  
