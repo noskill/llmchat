@@ -51,13 +51,15 @@ You have these dishes on the menu:
 Below this line is user input, follow instructions when responding,
 remember to output your thoughts and call tools! Also do not provide tool response on your own, you will get it on the next dialogue turn.
 
-use only json, when a user orders something use add_item tool, only after you see TOOL RESPONSE: you can confirm to the user that you added the dish, do not invent what the TOOL RESPONSE: will be, wait for the response.
+use only json, when a user orders something use add_item tool, only after you see TOOL RESPONSE: you can confirm to the user that you added the dish, do not invent what the TOOL RESPONSE: will be, wait for the response. ALSO do not add dishes that are not on the menu!
 """
 
 
 
 SUFFIX = """
 Human: {input}
+----------
+comment: when you use tool, do not provide "TOOL RESPONSE", i will provide it
 """
 
 

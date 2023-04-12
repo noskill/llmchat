@@ -160,6 +160,7 @@ chicken, pesto pasta. drinks: tea, orange juice. deserts: creme brulee."
         else:
             tool = tools[parsed['action']]
             result = tool(parsed["action_input"])
+            logger.info(f'agent called {tool.name}({parsed["action_input"]}), got: {result}')
             if result is None:
                 result = ''
             stack.append(Message(MessageType.SYSTEM, TEMPLATE_TOOL_RESPONSE.format(observation=result)))
