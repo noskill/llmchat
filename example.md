@@ -1,6 +1,7 @@
 Please enter the message:  
-Hi  
-I wo2023-04-12 10:02:13,030 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "Hello! Welcome to our restaurant. What can I get for you today?", "thoughts": "Greeting the user and asking for their order."}  
+Hi   
+
+2023-04-12 10:02:13,030 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "Hello! Welcome to our restaurant. What can I get for you today?", "thoughts": "Greeting the user and asking for their order."}  
 Hello! Welcome to our restaurant. What can I get for you today?  
 I would like tuna steak!  
 2023-04-12 10:02:23,168 - root - INFO - chatgpt response AI: { "action": "Answer", "action_input": "I'm sorry, but we don't have tuna steak on our menu. Would you like to order something else?", "thoughts": "Informing the user that tuna steak is not on the menu and asking for a different order."}  
