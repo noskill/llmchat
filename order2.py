@@ -7,6 +7,7 @@ import json
 import logging
 import os
 import openai
+import sys
 
 
 logger = logging.getLogger()
@@ -82,7 +83,7 @@ class OpenAIChat:
                 messages=msgs,
                 temperature=self.temperature)
         text = response['choices'][0]['message']['content']
-        logger.info('chatgpt response %s', text)
+        logger.debug('chatgpt response %s', text)
         return Message(MessageType.ASSISTANT, text)
 
 
@@ -112,10 +113,28 @@ class Tool:
         return self.func(message)
 
 
+def sys_exit(*args, **kwargs):
+    sys.exit(0)
+
+
 def main():
+    def exit(*args, **kwargs):
+        # save order to a file
+        with open('order.txt','w') as f:
+            f.write('\n'.join(order.items))
+        sys_exit()
+    
     setupLogger()
     order = MyOrder()
     tools = [
+        Tool(
+            name="stop",
+            func=exit,
+            description="""let know that order is complete and dialogue is ended
+            Assistant:{{ "action": "stop" "action_input": "" }}
+            TOOL RESPONSE: ok, dialogue is over
+            """
+        ),
         Tool(
             name="add_item",
             func=order.add_item,
@@ -135,10 +154,12 @@ def main():
     tools = {t.name: t for t in tools}
     ch = OpenAIChat(temperature=0, model_name='gpt-3.5-turbo')
     
-    menu = "salads: olivier, greek salad. soups: tomato soup, chicken noodle soup(spicy). main courses: barbecue \
-chicken, pesto pasta. drinks: tea, orange juice. deserts: creme brulee."
+    menu = open('indian_menu.txt', 'rt').read().strip()
+    # create guide prompt
+    resp = ch([Message(MessageType.USER, TEMPLATE_GUIDE.format(menu=menu))]).content
+    
     ch = ChatHistory(ch)
-    ch.add_history(Message(MessageType.SYSTEM, PREFIX.format(menu=menu)))
+    ch.add_history(Message(MessageType.SYSTEM, PREFIX.format(menu=menu, guide=resp)))
     parse = AgentOutputParser()
     
     out = "Please enter the message:"
