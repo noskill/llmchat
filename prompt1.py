@@ -50,7 +50,7 @@ AI: {{ "action": "Answer", "action_input": "yes, this soup is spicy"}}
 Human: i'll take spicy soup.
 AI: {{ "action": "add_item", "action_input": "chicken noodle soup(spicy)", "thoughts": "Adding chicken noodle soup (spicy) to the order using the add_item tool."}}
 TOOL RESPONSE: chicken noodle soup(spicy)
-AI: {{ "action": "Answer", "action_input": "Great choice! I have added the chicken noodle soup (spicy) to your order."}}
+AI: {{ "action": "Answer", "action_input": "Great choice! I have added the chicken noodle soup (spicy) to your order.", "thoughts": "soup category is done, i should offer main course now"}}
 
 -------------------------
 

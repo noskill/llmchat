@@ -1,35 +1,25 @@
 Please enter the message:
 Hi
-Hello! Welcome to the hospital's cafeteria. How can I assist you with your lunch order today?
-yes, i would like tuna steak
-I'm sorry, but tuna steak is not on our menu today. Would you like me to go over the menu options with you?
-yes 
-Great! Let's start with salads. We have Greek Salad with feta cheese, tomatoes, cucumbers, olives, and a lemon vinaigrette, and Mango and Cucumber Salad with red onion, cilantro, and lime dressing. Which one would you like to order?
-Great, i will take greek salad
-2023-04-13 14:16:29,011 - root - INFO - agent called add_item(Greek Salad), got: Greek Salad
-Great choice! I have added the Greek Salad to your order. Now, let's move on to soups. We have Mulligatawny Soup, an Indian soup made with lentils, vegetables, and spices, and French Onion Soup with Gruyere Cheese Croutons. Which one would you like to order?
-You said indian soup with spices?
-Yes, that's right. Mulligatawny Soup is an Indian soup made with lentils, vegetables, and spices. Would you like to order it?
-is it spicy?
-Yes, Mulligatawny Soup is a bit spicy. Would you like to try it?
-yes, sure, i like spicy food!
-2023-04-13 14:17:19,668 - root - INFO - agent called add_item(Mulligatawny Soup(spicy)), got: Greek Salad, Mulligatawny Soup(spicy)
-Great! I have added the Mulligatawny Soup (spicy) to your order. Moving on to main courses, we have Chicken Tikka Masala with Basmati Rice and Naan Bread, and Beef Bourguignon with Mashed Potatoes and Green Beans. Which one would you like to order?
-what did you say? Greek Beans?
-I'm sorry for the confusion. The main courses we have are Chicken Tikka Masala with Basmati Rice and Naan Bread, and Beef Bourguignon with Mashed Potatoes and Green Beans. Which one would you like to order?
-Great, i will take Beef Bourguignon
-2023-04-13 14:18:15,098 - root - INFO - agent called add_item(Beef Bourguignon), got: Greek Salad, Mulligatawny Soup(spicy), Beef Bourguignon
-Great choice! I have added the Beef Bourguignon to your order. Finally, for dessert, we have Gulab Jamun, an Indian dessert made with fried dough balls soaked in syrup, and Tiramisu, an Italian dessert made with layers of ladyfingers, mascarpone cheese, and coffee. Which one would you like to order?
-I like Tiramisu, please add it to the order.
-2023-04-13 14:18:38,496 - root - INFO - agent called add_item(Tiramisu), got: Greek Salad, Mulligatawny Soup(spicy), Beef Bourguignon, Tiramisu
-Great! I have added the Tiramisu to your order. Is there anything else you would like to add or remove from your order?
-yes, i would like a red wine
-I'm sorry, but we do not serve alcohol in the hospital cafeteria. Is there anything else you would like to add or remove from your order?
-yes, do you have drinks?
-Yes, we have Mango Lassi, an Indian drink made with yogurt, mango, and spices, and Sparkling Water with a Squeeze of Lemon. Which one would you like to order?
-I will take Mango Lassi
-2023-04-13 14:19:38,964 - root - INFO - agent called add_item(Mango Lassi), got: Greek Salad, Mulligatawny Soup(spicy), Beef Bourguignon, Tiramisu, Mango Lassi
-Great! I have added the Mango Lassi to your order. Your order now includes: Greek Salad, Mulligatawny Soup (spicy), Beef Bourguignon, Tiramisu, and Mango Lassi. Is there anything else you would like to add or remove from your order?
+Hello! Welcome to our hospital's cafeteria. Are you ready to place your lunch order?
+Yes, please
+Great! Let's start with salads. Our options today are Greek Salad and Mango and Cucumber Salad. Which one would you like to order?
+Good, i will take Greek Salad
+2023-04-14 06:30:16,915 - root - INFO - agent called add_item(Greek Salad), got: Greek Salad
+Great choice! I have added the Greek Salad to your order. Now, let's move on to soups. Our options today are Mulligatawny Soup and French Onion Soup. Which one would you like to order?
+yes, is Mulligatawny Soup spicy?
+Yes, Mulligatawny Soup is a bit spicy.
+Great, i like spicy food, i will take the spicy soup
+2023-04-14 06:30:57,926 - root - INFO - agent called add_item(Mulligatawny Soup(spicy)), got: Greek Salad, Mulligatawny Soup(spicy)
+Great! I have added the Mulligatawny Soup (spicy) to your order. Now, let's move on to main courses. Our options today are Chicken Tikka Masala and Beef Bourguignon. Which one would you like to order?
+Ok, i will take Beef Bourguignon
+2023-04-14 06:31:26,867 - root - INFO - agent called add_item(Beef Bourguignon), got: Greek Salad, Mulligatawny Soup(spicy), Beef Bourguignon
+Great! I have added the Beef Bourguignon to your order. Now, let's move on to desserts. Our options today are Gulab Jamun and Tiramisu. Which one would you like to order?
+I like tiramisu, i will take it
+2023-04-14 06:31:53,207 - root - INFO - agent called add_item(Tiramisu), got: Greek Salad, Mulligatawny Soup(spicy), Beef Bourguignon, Tiramisu
+Great! I have added the Tiramisu to your order. Finally, let's move on to drinks. Our options today are Mango Lassi and Sparkling Water with a Squeeze of Lemon. Which one would you like to order?
+I would like a red wine
+I'm sorry, but we don't serve alcohol in our hospital cafeteria. Our drink options are Mango Lassi and Sparkling Water with a Squeeze of Lemon. Which one would you like to order?
+Ok i will take Sparkling Water
+2023-04-14 06:32:21,628 - root - INFO - agent called add_item(Sparkling Water with a Squeeze of Lemon), got: Greek Salad, Mulligatawny Soup(spicy), Beef Bourguignon, Tiramisu, Sparkling Water with a Squeeze of Lemon
+Great! I have added the Sparkling Water with a Squeeze of Lemon to your order. Your order is: Greek Salad, Mulligatawny Soup (spicy), Beef Bourguignon, Tiramisu, and Sparkling Water with a Squeeze of Lemon. Is there anything else I can help you with?
 no, thank you
-You're welcome! Your order is complete. Your food will be delivered shortly. Thank you for choosing our hospital cafeteria. Have a good day!
-ok
