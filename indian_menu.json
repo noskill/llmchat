@@ -1,0 +1,18 @@
+{
+    "Salads": {"Greek Salad":  "feta cheese, tomatoes, cucumbers, olives, and a lemon vinaigrette",
+            "Mango and Cucumber Salad": "red onion, cilantro, and lime dressing"
+            },
+
+    "Soups": {
+            "Mulligatawny Soup": "(an Indian soup made with lentils, vegetables, and spices)",
+            "French Onion Soup": "Gruyere Cheese Croutons"},
+
+    "Main Courses": {"Chicken Tikka Masala": "goes with Basmati Rice and Naan Bread", 
+                    "Beef Bourguignon":  "goes with Mashed Potatoes and Green Beans"},
+
+    "Desserts": {"Gulab Jamun": "(an Indian dessert made with fried dough balls soaked in syrup)",
+                "Tiramisu":  "(an Italian dessert made with layers of ladyfingers, mascarpone cheese, and coffee)"},
+
+    "Drinks": {"Mango Lassi": "(an Indian drink made with yogurt, mango, and spices)",
+            "Sparkling Water": "with a Squeeze of Lemon"}
+}

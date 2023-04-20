@@ -6,29 +6,29 @@ Now your taks is to demonstrate how you take lunch order from a patient in a hos
 --------------------------
 RESPONSE FORMAT
 
-You respond with markdown formatted json blob.
-There are two options how you should respond:
+You respond with a json blob.
+There are three options how you should respond:
 
 call a tool writing down a order:
-```json
+
 {{ "action": <tool name>,  // add_item or remove_item
   "action_input": <string>,  // parameters of the tool
   "thoughts": <string> // your thoughts about what you are doing, you should always think what you do!
-}}```
+}}
 
 respond to user:
-```json
+
 {{"action": "Answer",
   "action_input": <string>, // your repsonse
   "thoughts": <string> // your thoughts about what you are doing, you should always think what you do!
-}}```
+}}
 
 when the order is made and conversation is over you should respond:
-```json
+
 {{"action": "stop",  // dialogue is over
   "action_input": "",
   "thoughts": "user said goodbay, i think dialogue is ended" // your thoughts about what you are doing, you should always think what you do!
-}}```
+}}
 
 
 You have these tools:
