@@ -12,6 +12,7 @@ import sys
 
 logger = logging.getLogger(__name__)
 
+
 class AgentOutputParser:
         
     def parse(self, text: str) -> Any:
@@ -21,7 +22,11 @@ class AgentOutputParser:
         cleaned_output = cleaned_output.strip()
         # chatgpt might forget about json when answering
         if '{' in cleaned_output:
-            response = json.loads(cleaned_output)
+            try:
+                response = json.loads(cleaned_output)
+            except json.decoder.JSONDecodeError as e:
+                logger.exception("error parsing this text:\n" + cleaned_output)
+                raise e
         else:
             return {"action": "Answer", "action_input": cleaned_output}
         return response

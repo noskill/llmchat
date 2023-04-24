@@ -99,6 +99,8 @@ def main():
     
     ch = ChatWithHistory(ch)
     ch.add_history(Message(MessageType.SYSTEM, PREFIX.format(menu=menu, guide=resp)))
+    ch.add_history(Message(MessageType.USER, "NEVER provide TOOL RESPONSE!!!\
+                           Wait for an actual response!!!"))
     parse = AgentOutputParser()
     
     out = "Please enter the message:"
