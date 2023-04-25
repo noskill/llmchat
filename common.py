@@ -46,6 +46,9 @@ class Message:
         self.type = message_type
         self.content = content
         
+    def setContent(self, content) -> None:
+        self.content = content
+        
     def to_dict(self) -> Dict[str, str]:
         return {"role": self.type.value, "content": self.content}
     
@@ -91,27 +94,6 @@ class ChatWithHistory(IChat):
         self.history.extend(message)
         reply = self.chatbot(*self.history)
         self.history.append(reply)
-        return reply
-    
-
-class WithToplevel(IChat):
-    def __init__(self, chatbot_top: ChatWithHistory, chatbot_bottom: ChatWithHistory):
-        self.chatbot_top = chatbot_top
-        self.chatbot_bottom = chatbot_bottom
-        
-    def __call__(self, *message: Message) -> Message:
-        # we pass message to chatbot_bottom
-        reply = self.chatbot_bottom(*message)
-        # now check what chatbot_top thinks about that
-        msgs = message + [reply]
-        reply_top = self.chatbot_top(*msgs)
-        
-        while reply_top.content != 'ok':
-            logger.info("toplevel found an error: %s", reply_top)
-            # pass the feedback
-            reply = self.chatbot_bottom(reply_top)
-            # we got a new reply
-            reply_top = self.chatbot_top(*msgs)
         return reply
 
 

@@ -41,7 +41,7 @@ class MyOrder:
         try:
             self.items.remove(item)
         except ValueError as e:
-            return 'there was an error in python code removing "{0}" from the order, the code is items.remove(item) where items is a list, currently items = {1} please try again'.format(item, self.items)
+            return 'there is no "{0}" in the order, currently order = {1} please try again'.format(item, self.items)
         return self.get_order()
     
     def __str__(self):
@@ -115,6 +115,7 @@ def main():
             stack.append(Message(MessageType.USER, SUFFIX.format(input=s)))
             continue
         ai_resp = ch(current_msg)
+        ch.history[-2].setContent(str(ch.history[-2]).split("----------")[0])
         parsed = parse.parse(ai_resp.content)
         action = parsed['action']
         if 'Answer' == action:
