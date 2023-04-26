@@ -34,16 +34,16 @@ class MyOrder:
 
     def add_item(self, item):
         if item not in self.menu:
-            return 'there was an error in python code adding "{0}": there is no such item in the menu, there are only these dishes {1}'.format(item, self.menu)
+            return Error('there was an error in python code adding "{0}": there is no such item in the menu, there are only these dishes {1}'.format(item, self.menu))
         self.items.append(item)
-        return self.get_order()
+        return Ok("Ok, I added " + item + " to the order. Would you like to order something else?")
         
     def remove_item(self, item):
         try:
             self.items.remove(item)
         except ValueError as e:
-            return 'there is no "{0}" in the order, currently order = {1} please try again'.format(item, self.items)
-        return self.get_order()
+            return Error('there is no "{0}" in the order, currently order = {1} please try again'.format(item, self.items))
+        return Ok("Ok, I removed " + item + " from the order. Would you like to order something else?")
     
     def __str__(self):
         return str(self.items)
@@ -125,9 +125,16 @@ def main():
             tool = tools[parsed['action']]
             result = tool(parsed["action_input"])
             logger.info(f'agent called {tool.name}({parsed["action_input"]}), got: {result}')
-            if result is None:
-                result = ''
-            stack.append(Message(MessageType.SYSTEM, TEMPLATE_TOOL_RESPONSE.format(observation=result)))
+            if isinstance(result, Ok):
+                if tool.name in ('add_item', 'remove_item'):
+                    out = result.result
+                    ch.history.append(Message(MessageType.SYSTEM, TEMPLATE_TOOL_RESPONSE.format(observation=order.get_order())))
+                    ch.history.append(Message(MessageType.ASSISTANT, result.result))
+                    continue
+                else:
+                    logger.error("unexpected result " + str(result))
+            stack.append(Message(MessageType.SYSTEM, TEMPLATE_TOOL_RESPONSE.format(observation=str(result))))
+
 
 
 if __name__ == '__main__':

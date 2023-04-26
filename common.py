@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Dict, Any, List, Union
+from typing import Dict, Any, List, Union, Optional
 from prompt1 import *
 
 
@@ -30,6 +30,27 @@ class AgentOutputParser:
         else:
             return {"action": "Answer", "action_input": cleaned_output}
         return response
+
+
+class Result:
+    pass
+
+
+class Ok(Result):
+    def __init__(self, result: Any=None):
+        self.result = result
+        
+    def __str__(self):
+        return f'Result({self.result})'
+
+
+class Error(Result):
+    def __init__(self, err_msg: str, e: Optional[Exception]=None):
+        self.error_string = err_msg
+        self.exception = e
+        
+    def __str__(self):
+        return f'Error({self.error_string}, {self.exception})'
 
 
 class MessageType(Enum):
@@ -74,7 +95,7 @@ class OpenAIChat(IChat):
         msgs = [m.to_dict() for m in message]
         logger.debug("passing to chatgpt: %s", msgs)
         response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model=self.model_name,
                 messages=msgs,
                 temperature=self.temperature)
         text = response['choices'][0]['message']['content']
